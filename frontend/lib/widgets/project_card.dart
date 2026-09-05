@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/project.dart';
 import '../theme/app_theme.dart';
@@ -163,7 +164,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   _ProjectLink(
                     label: 'GitHub',
                     tooltipLabel: 'Source code',
-                    icon: Icons.code_rounded,
+                    icon: FontAwesomeIcons.github,
                     color: const Color(0xFFE9EDF5),
                     url: widget.project.githubUrl,
                     onOpen: _open,
