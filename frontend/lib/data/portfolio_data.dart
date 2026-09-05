@@ -48,6 +48,10 @@ const projects = <Project>[
       'Introduce richer model monitoring and release gates.',
       'Improve edge-case and language-specific evaluation.',
     ],
+    webUrl: 'https://messageshield-ai.vercel.app',
+    androidUrl: 'https://github.com/Jaydeosawale/messageshield-ai/releases/latest/download/MessageShield.apk',
+    iosUrl: null,
+    githubUrl: 'https://github.com/Jaydeosawale/messageshield-ai',
   ),
   Project(
     id: 'trav-planner',
