@@ -16,6 +16,15 @@ def root():
     }
 
 
+@app.get("/api")
+def api_root():
+    return {
+        "name": "Jaydeo Sawale",
+        "service": "portfolio-api",
+        "status": "ok",
+    }
+
+
 @app.get("/api/projects")
 def projects():
     return PROJECTS
