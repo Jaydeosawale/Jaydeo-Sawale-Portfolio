@@ -8,7 +8,6 @@ environment:
   flutter: '>=3.24.0'
 
 dependencies:
-  font_awesome_flutter: ^10.9.1
   flutter:
     sdk: flutter
   url_launcher: ^6.3.2
