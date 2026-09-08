@@ -537,7 +537,7 @@ class _ProfileImage extends StatelessWidget {
         ),
         child: ClipOval(
           child: Image.asset(
-            'assets/images/profile.jpg',
+            'assets/images/jaydeo_profile.jpg',
             width: imageSize,
             height: imageSize,
             fit: BoxFit.cover,
