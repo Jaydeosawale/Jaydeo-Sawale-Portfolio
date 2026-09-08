@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../theme/app_theme.dart';
 import '../widgets/section_shell.dart';
 import '../widgets/section_title.dart';
@@ -24,7 +25,6 @@ class SkillsSection extends StatelessWidget {
           'Reusable Components',
         ],
       ),
-
       _SkillGroup(
         title: 'Backend & APIs',
         note: 'Hands-on engineering projects',
@@ -37,7 +37,6 @@ class SkillsSection extends StatelessWidget {
           'Backend Architecture',
         ],
       ),
-
       _SkillGroup(
         title: 'Machine Learning',
         note: 'Hands-on engineering and projects',
@@ -51,7 +50,6 @@ class SkillsSection extends StatelessWidget {
           'Model Evaluation',
         ],
       ),
-
       _SkillGroup(
         title: 'Deep Learning',
         note: 'Current learning and practical development',
@@ -63,7 +61,6 @@ class SkillsSection extends StatelessWidget {
           'Training Concepts',
         ],
       ),
-
       _SkillGroup(
         title: 'Generative AI & RAG',
         note: 'Hands-on project development',
@@ -77,7 +74,6 @@ class SkillsSection extends StatelessWidget {
           'Prompt Engineering',
         ],
       ),
-
       _SkillGroup(
         title: 'MLOps & Delivery',
         note: 'Production-oriented project workflows',
@@ -92,7 +88,6 @@ class SkillsSection extends StatelessWidget {
           'Deployment',
         ],
       ),
-
       _SkillGroup(
         title: 'Engineering Practices',
         note: 'How I build systems',
@@ -119,7 +114,7 @@ class SkillsSection extends StatelessWidget {
                 'My technical toolkit spans Native Android and Flutter Multiplatform development, backend engineering, Machine Learning, Deep Learning, Generative AI, RAG, and production-oriented MLOps workflows.',
           ),
 
-          const SizedBox(height: 38),
+          const SizedBox(height: 32),
 
           LayoutBuilder(
             builder: (context, constraints) {
@@ -168,60 +163,113 @@ class _SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(22),
-      decoration: BoxDecoration(
-        color: AppTheme.panel,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(
-          color: Colors.white.withValues(alpha: 0.07),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = constraints.maxWidth < 500;
+
+        return Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(isMobile ? 18 : 22),
+          decoration: BoxDecoration(
+            color: AppTheme.panel,
+            borderRadius: BorderRadius.circular(
+              isMobile ? 20 : 22,
+            ),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.07),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // ==========================================================
+              // CARD HEADER
+              // ==========================================================
+
+              if (isMobile)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      Icons.arrow_outward_rounded,
+                      size: 18,
+                      color: AppTheme.cyan,
+                    ),
+
+                    const SizedBox(height: 12),
+
+                    Text(
+                      group.title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                        height: 1.2,
+                      ),
+                    ),
+                  ],
+                )
+              else
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        group.title,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          height: 1.2,
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(width: 12),
+
+                    const Icon(
+                      Icons.arrow_outward_rounded,
+                      size: 18,
+                      color: AppTheme.cyan,
+                    ),
+                  ],
+                ),
+
+              const SizedBox(height: 7),
+
+              // ==========================================================
+              // NOTE
+              // ==========================================================
+
               Text(
-                group.title,
+                group.note,
                 style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
+                  color: Colors.white38,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  height: 1.4,
                 ),
               ),
-              const Icon(
-                Icons.arrow_outward_rounded,
-                size: 18,
-                color: AppTheme.cyan,
+
+              const SizedBox(height: 16),
+
+              // ==========================================================
+              // SKILLS
+              // ==========================================================
+
+              Wrap(
+                spacing: 7,
+                runSpacing: 7,
+                children: group.skills
+                    .map(
+                      (skill) => SkillChip(
+                        label: skill,
+                      ),
+                    )
+                    .toList(),
               ),
             ],
           ),
-
-          const SizedBox(height: 6),
-
-          Text(
-            group.note,
-            style: const TextStyle(
-              color: Colors.white38,
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-
-          const SizedBox(height: 16),
-
-          Wrap(
-            spacing: 7,
-            runSpacing: 7,
-            children: group.skills
-                .map(
-                  (skill) => SkillChip(label: skill),
-                )
-                .toList(),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
