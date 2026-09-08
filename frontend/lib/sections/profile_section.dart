@@ -14,38 +14,63 @@ class ProfileSection extends StatelessWidget {
         children: [
           const SectionTitle(
             eyebrow: 'Professional Profile',
-            title: 'Mobile experience. Expanding into AI engineering.',
+            title: 'Mobile engineering foundation. Building production AI systems.',
             description:
-                'A practical engineering journey that combines a professional foundation in Android and Flutter development with independently built backend, Machine Learning, Generative AI, and MLOps projects.',
+                'A software engineering journey combining 5+ years of professional Native Android development with Kotlin, Flutter Multiplatform development, and independently built systems across backend engineering, Machine Learning, Deep Learning, Generative AI, RAG, and MLOps.',
           ),
+
           const SizedBox(height: 34),
+
           LayoutBuilder(
             builder: (context, constraints) {
               final wide = constraints.maxWidth > 820;
+
               final cards = [
                 _ProfileCard(
                   icon: Icons.phone_android_rounded,
                   number: '01',
                   title: 'Professional mobile engineering',
                   description:
-                      '5+ years of Android development experience and 6+ months of Flutter development, focused on frontend application experiences, UI implementation, reusable components, and product flows.',
-                  tags: const ['Android', 'Flutter', 'Dart', 'Mobile UI'],
+                      '5+ years of professional experience in Native Android development using Kotlin, building mobile application experiences, UI implementations, reusable components, and complete product flows. Also experienced in Flutter Multiplatform development.',
+                  tags: const [
+                    'Kotlin',
+                    'Android',
+                    'Flutter',
+                    'Dart',
+                    'Multiplatform',
+                  ],
                 ),
+
                 _ProfileCard(
                   icon: Icons.layers_rounded,
                   number: '02',
-                  title: 'Independent software engineering',
+                  title: 'Software & backend engineering',
                   description:
-                      'Hands-on project work extending beyond the mobile layer into Python backend services, REST APIs, testing, Docker, CI/CD, and deployment-oriented workflows.',
-                  tags: const ['Python', 'FastAPI', 'REST APIs', 'Docker', 'Pytest'],
+                      'Hands-on engineering experience beyond the mobile layer, building Python backend services, REST APIs, automated tests, Dockerized applications, CI/CD workflows, and deployment-oriented systems.',
+                  tags: const [
+                    'Python',
+                    'FastAPI',
+                    'REST APIs',
+                    'Docker',
+                    'Pytest',
+                    'CI/CD',
+                  ],
                 ),
+
                 _ProfileCard(
                   icon: Icons.auto_awesome_rounded,
                   number: '03',
-                  title: 'AI / ML engineering direction',
+                  title: 'AI / ML engineering',
                   description:
-                      'Building practical systems around Machine Learning, Deep Learning, LLM applications, RAG, retrieval, evaluation, and MLOps practices.',
-                  tags: const ['ML', 'Deep Learning', 'LLMs', 'RAG', 'MLOps'],
+                      'Building practical AI systems across Machine Learning, Deep Learning, LLM applications, Generative AI, RAG, retrieval, evaluation, model training, and production-oriented MLOps workflows.',
+                  tags: const [
+                    'Machine Learning',
+                    'Deep Learning',
+                    'GenAI',
+                    'LLMs',
+                    'RAG',
+                    'MLOps',
+                  ],
                 ),
               ];
 
@@ -66,7 +91,8 @@ class ProfileSection extends StatelessWidget {
                 children: [
                   for (var i = 0; i < cards.length; i++) ...[
                     cards[i],
-                    if (i != cards.length - 1) const SizedBox(height: 16),
+                    if (i != cards.length - 1)
+                      const SizedBox(height: 16),
                   ],
                 ],
               );
@@ -107,16 +133,28 @@ class _ProfileCardState extends State<_ProfileCard> {
       onExit: (_) => setState(() => hovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
-        transform: Matrix4.translationValues(0, hovered ? -5 : 0, 0),
+        transform: Matrix4.translationValues(
+          0,
+          hovered ? -5 : 0,
+          0,
+        ),
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           color: AppTheme.panel.withValues(alpha: 0.88),
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: hovered ? AppTheme.cyan.withValues(alpha: 0.24) : Colors.white.withValues(alpha: 0.08),
+            color: hovered
+                ? AppTheme.cyan.withValues(alpha: 0.24)
+                : Colors.white.withValues(alpha: 0.08),
           ),
           boxShadow: hovered
-              ? [BoxShadow(color: AppTheme.cyan.withValues(alpha: 0.08), blurRadius: 30, spreadRadius: 2)]
+              ? [
+                  BoxShadow(
+                    color: AppTheme.cyan.withValues(alpha: 0.08),
+                    blurRadius: 30,
+                    spreadRadius: 2,
+                  ),
+                ]
               : const [],
         ),
         child: Column(
@@ -132,25 +170,53 @@ class _ProfileCardState extends State<_ProfileCard> {
                     color: AppTheme.cyan.withValues(alpha: 0.08),
                     borderRadius: BorderRadius.circular(13),
                   ),
-                  child: Icon(widget.icon, color: AppTheme.cyan, size: 21),
+                  child: Icon(
+                    widget.icon,
+                    color: AppTheme.cyan,
+                    size: 21,
+                  ),
                 ),
-                Text(widget.number, style: const TextStyle(color: Colors.white24, fontWeight: FontWeight.w900, fontSize: 14)),
+                Text(
+                  widget.number,
+                  style: const TextStyle(
+                    color: Colors.white24,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 14,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 22),
-            Text(widget.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+            Text(
+              widget.title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
             const SizedBox(height: 12),
-            Text(widget.description, style: const TextStyle(color: AppTheme.muted, height: 1.6, fontSize: 14)),
+            Text(
+              widget.description,
+              style: const TextStyle(
+                color: AppTheme.muted,
+                height: 1.6,
+                fontSize: 14,
+              ),
+            ),
             const SizedBox(height: 18),
             Wrap(
               spacing: 7,
               runSpacing: 7,
               children: widget.tags
-                  .map((tag) => Chip(
-                        label: Text(tag),
-                        padding: const EdgeInsets.symmetric(horizontal: 2),
-                        side: BorderSide(color: Colors.white.withValues(alpha: 0.06)),
-                      ))
+                  .map(
+                    (tag) => Chip(
+                      label: Text(tag),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      side: BorderSide(
+                        color: Colors.white.withValues(alpha: 0.06),
+                      ),
+                    ),
+                  )
                   .toList(),
             ),
           ],

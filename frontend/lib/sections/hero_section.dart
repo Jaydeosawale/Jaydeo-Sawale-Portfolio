@@ -43,8 +43,6 @@ class HeroSection extends StatelessWidget {
                 );
               }
 
-              // Keep the original professional desktop composition:
-              // text on the left, personal photo on the right.
               return Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -83,7 +81,7 @@ class HeroSection extends StatelessWidget {
             ),
           ),
           child: const Text(
-            'SOFTWARE ENGINEER • AI / ML • MOBILE',
+            'AI / ML • GENAI • MOBILE ENGINEERING',
             style: TextStyle(
               color: AppTheme.cyan,
               fontSize: 11,
@@ -92,6 +90,7 @@ class HeroSection extends StatelessWidget {
             ),
           ),
         ),
+
         const SizedBox(height: 26),
 
         Text(
@@ -106,7 +105,7 @@ class HeroSection extends StatelessWidget {
         const SizedBox(height: 12),
 
         const Text(
-          'AI / ML Engineer',
+          'AI/ML & GenAI Engineer',
           style: TextStyle(
             color: AppTheme.cyan,
             fontSize: 20,
@@ -118,7 +117,7 @@ class HeroSection extends StatelessWidget {
         const SizedBox(height: 20),
 
         Text(
-          'Building intelligent systems with a professional foundation in Android and Flutter application development.',
+          'Building intelligent and production-ready systems with a strong foundation in Native Android (Kotlin) and Flutter Multiplatform development.',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontSize: compact ? 22 : 28,
                 height: 1.25,
@@ -131,7 +130,7 @@ class HeroSection extends StatelessWidget {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 780),
           child: Text(
-            'Professional mobile development experience combined with hands-on independent engineering across Machine Learning, backend APIs, Generative AI, RAG, MLOps, testing, containerization, and deployment workflows.',
+            'Software engineer with professional experience in Native Android development using Kotlin and Flutter Multiplatform development, now building end-to-end systems across Machine Learning, Deep Learning, Generative AI, RAG, LLM applications, backend APIs, MLOps, testing, containerization, and deployment workflows.',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontSize: compact ? 15 : 17,
                   height: 1.72,
@@ -141,14 +140,16 @@ class HeroSection extends StatelessWidget {
 
         const SizedBox(height: 26),
 
-        Wrap(
+        const Wrap(
           spacing: 9,
           runSpacing: 9,
-          children: const [
-            _Pill('Android'),
-            _Pill('Flutter'),
+          children: [
+            _Pill('Kotlin'),
+            _Pill('Native Android'),
+            _Pill('Flutter Multiplatform'),
             _Pill('Python'),
             _Pill('Machine Learning'),
+            _Pill('Deep Learning'),
             _Pill('GenAI'),
             _Pill('RAG'),
             _Pill('MLOps'),
@@ -177,7 +178,6 @@ class HeroSection extends StatelessWidget {
                 ),
               ),
             ),
-
             OutlinedButton.icon(
               onPressed: onExperience,
               icon: const Icon(Icons.work_outline_rounded),
@@ -207,11 +207,11 @@ class HeroSection extends StatelessWidget {
           children: [
             _Proof(
               '5+ yrs',
-              'Professional Android',
+              'Native Android • Kotlin',
             ),
             _Proof(
               '6+ mos',
-              'Professional Flutter',
+              'Flutter Multiplatform',
             ),
             _Proof(
               '4',
@@ -369,7 +369,6 @@ class _HeroVisualState extends State<_HeroVisual>
                 angle * 0.65,
               ),
 
-              // Outer halo around the portrait.
               Container(
                 width: photoSize + 24,
                 height: photoSize + 24,
@@ -390,9 +389,6 @@ class _HeroVisualState extends State<_HeroVisual>
                 ),
               ),
 
-              // Your original photo.
-              // The scale and alignment deliberately keep the face
-              // centered while cropping out the lower body and hand.
               Container(
                 width: photoSize,
                 height: photoSize,
@@ -412,18 +408,18 @@ class _HeroVisualState extends State<_HeroVisual>
                     width: 1.6,
                   ),
                 ),
-                 child: ClipOval(
-  child: Transform.scale(
-    scale: compact ? 1.03 : 1.08,
-    alignment: Alignment.center,
-    child: Image.asset(
-      'assets/images/jaydeo_profile.jpg',
-      fit: BoxFit.cover,
-      alignment: Alignment.center,
-      filterQuality: FilterQuality.high,
-    ),
-  ),
-),
+                child: ClipOval(
+                  child: Transform.scale(
+                    scale: compact ? 1.03 : 1.08,
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      'assets/images/jaydeo_profile.jpg',
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                      filterQuality: FilterQuality.high,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

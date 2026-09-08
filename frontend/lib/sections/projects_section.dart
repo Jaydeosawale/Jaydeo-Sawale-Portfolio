@@ -17,14 +17,17 @@ class ProjectsSection extends StatelessWidget {
         children: [
           const SectionTitle(
             eyebrow: 'Flagship Projects',
-            title: 'Four projects. Four different engineering stories.',
+            title: 'Four projects. Four engineering stories.',
             description:
-                'Each project is presented as a case study: what the system does, what I built, which technologies matter, and where the engineering can evolve next.',
+                'A portfolio of practical systems spanning Machine Learning, MLOps, Generative AI, RAG, backend engineering, and Flutter Multiplatform application development. Each project is presented as a case study covering the problem, architecture, technologies, engineering decisions, and future evolution.',
           ),
+
           const SizedBox(height: 34),
+
           LayoutBuilder(
             builder: (context, constraints) {
               final twoColumns = constraints.maxWidth >= 820;
+
               final width = twoColumns
                   ? (constraints.maxWidth - 18) / 2
                   : constraints.maxWidth;
@@ -38,18 +41,23 @@ class ProjectsSection extends StatelessWidget {
                     height: 414,
                     child: ProjectCard(
                       project: project,
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => ProjectDetailScreen(project: project),
-                        ),
-                      ),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                ProjectDetailScreen(project: project),
+                          ),
+                        );
+                      },
                     ),
                   );
                 }).toList(),
               );
             },
           ),
+
           const SizedBox(height: 22),
+
           Container(
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
@@ -62,11 +70,15 @@ class ProjectsSection extends StatelessWidget {
             child: const Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.auto_awesome_rounded, color: AppTheme.cyan, size: 20),
+                Icon(
+                  Icons.auto_awesome_rounded,
+                  color: AppTheme.cyan,
+                  size: 20,
+                ),
                 SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'All four projects are treated as flagship work. Their technical emphasis differs: MLOps and ML, mobile application engineering, RAG/GenAI, and broader LLM/agent systems.',
+                    'The projects represent different areas of modern software and AI engineering: Machine Learning and MLOps, message safety systems, Generative AI and RAG, and Flutter Multiplatform applications integrated with backend and AI technologies.',
                     style: TextStyle(
                       color: Colors.white60,
                       height: 1.5,
