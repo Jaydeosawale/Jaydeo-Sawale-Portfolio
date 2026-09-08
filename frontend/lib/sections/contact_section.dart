@@ -9,11 +9,8 @@ class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
 
   static const String email = 'jaydeep.sawale97@gmail.com';
-
   static const String phone = '+919850031115';
-
-  static const String githubUrl =
-      'https://github.com/Jaydeosawale';
+  static const String githubUrl = 'https://github.com/Jaydeosawale';
 
   Future<void> _openUrl(String url) async {
     final uri = Uri.parse(url);
@@ -59,11 +56,14 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isMobile = width < 600;
+
     return SectionShell(
       child: Container(
-        padding: const EdgeInsets.all(34),
+        padding: EdgeInsets.all(isMobile ? 22 : 34),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(isMobile ? 24 : 30),
           gradient: LinearGradient(
             colors: [
               AppTheme.cyan.withValues(alpha: 0.08),
@@ -84,36 +84,64 @@ class ContactSection extends StatelessWidget {
                   'Interested in opportunities where Native Android and Flutter Multiplatform experience can combine with software engineering, Machine Learning, Generative AI, RAG, and production AI systems.',
             ),
 
-            const SizedBox(height: 28),
+            SizedBox(height: isMobile ? 22 : 28),
 
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: [
-                _ContactButton(
-                  label: 'Email',
-                  icon: Icons.email_outlined,
-                  onPressed: _sendEmail,
-                ),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                if (isMobile) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _ContactButton(
+                        label: 'Email',
+                        icon: Icons.email_outlined,
+                        onPressed: _sendEmail,
+                      ),
+                      const SizedBox(height: 10),
+                      _ContactButton(
+                        label: 'Call',
+                        icon: Icons.phone_outlined,
+                        onPressed: _callPhone,
+                      ),
+                      const SizedBox(height: 10),
+                      _ContactButton(
+                        label: 'GitHub',
+                        icon: Icons.code_rounded,
+                        onPressed: () => _openUrl(githubUrl),
+                      ),
+                    ],
+                  );
+                }
 
-                _ContactButton(
-                  label: 'Call',
-                  icon: Icons.phone_outlined,
-                  onPressed: _callPhone,
-                ),
-
-                _ContactButton(
-                  label: 'GitHub',
-                  icon: Icons.code_rounded,
-                  onPressed: () => _openUrl(githubUrl),
-                ),
-              ],
+                return Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: [
+                    _ContactButton(
+                      label: 'Email',
+                      icon: Icons.email_outlined,
+                      onPressed: _sendEmail,
+                    ),
+                    _ContactButton(
+                      label: 'Call',
+                      icon: Icons.phone_outlined,
+                      onPressed: _callPhone,
+                    ),
+                    _ContactButton(
+                      label: 'GitHub',
+                      icon: Icons.code_rounded,
+                      onPressed: () => _openUrl(githubUrl),
+                    ),
+                  ],
+                );
+              },
             ),
 
-            const SizedBox(height: 26),
+            SizedBox(height: isMobile ? 20 : 26),
 
             Container(
-              padding: const EdgeInsets.all(18),
+              width: double.infinity,
+              padding: EdgeInsets.all(isMobile ? 16 : 18),
               decoration: BoxDecoration(
                 color: Colors.white.withValues(alpha: 0.035),
                 borderRadius: BorderRadius.circular(18),
@@ -121,10 +149,10 @@ class ContactSection extends StatelessWidget {
                   color: Colors.white.withValues(alpha: 0.07),
                 ),
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'GET IN TOUCH',
                     style: TextStyle(
                       color: AppTheme.cyan,
@@ -134,24 +162,24 @@ class ContactSection extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 14),
+                  const SizedBox(height: 14),
 
                   SelectableText(
-                    'jaydeep.sawale97@gmail.com',
+                    email,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 15,
+                      fontSize: isMobile ? 13 : 15,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
 
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
 
                   SelectableText(
                     '+91 9850031115',
                     style: TextStyle(
                       color: Colors.white70,
-                      fontSize: 14,
+                      fontSize: isMobile ? 13 : 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -159,7 +187,7 @@ class ContactSection extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: isMobile ? 18 : 20),
 
             const Text(
               'Available for opportunities in AI/ML, Generative AI, Native Android, Flutter Multiplatform, and software engineering.',
@@ -197,6 +225,8 @@ class _ContactButton extends StatelessWidget {
       ),
       label: Text(label),
       style: OutlinedButton.styleFrom(
+        minimumSize: const Size(0, 52),
+        alignment: Alignment.center,
         foregroundColor: Colors.white,
         side: BorderSide(
           color: Colors.white.withValues(alpha: 0.24),
