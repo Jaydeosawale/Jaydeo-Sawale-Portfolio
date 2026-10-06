@@ -24,11 +24,11 @@ class ExperienceSection extends StatelessWidget {
 
           const _ExperienceItem(
             index: '01',
-            title: 'Native Android Development',
+            title: 'Android Development',
             company: 'eNyota Learning Pvt. Ltd.',
-            duration: '5+ years',
+            duration: '5 years incl. internship',
             description:
-                'Professional Native Android application development using Kotlin, focused on frontend implementation, mobile UI, application screens, user flows, feature delivery, reusable components, and maintainable client-side application code.',
+                'Application Developer (May 2022-present), following an Android Developer internship (August 2021-May 2022). Built and supported mobile learning application UI, user flows, API integrations, and releases. Historical native Android work used Kotlin.',
             tags: [
               'Native Android',
               'Kotlin',
@@ -43,11 +43,11 @@ class ExperienceSection extends StatelessWidget {
 
           const _ExperienceItem(
             index: '02',
-            title: 'Flutter Multiplatform Development',
+            title: 'Flutter Development',
             company: 'eNyota Learning Pvt. Ltd.',
-            duration: '6+ months',
+            duration: '6 months',
             description:
-                'Professional Flutter development focused on building multiplatform application experiences with responsive layouts, reusable widgets, structured application screens, and user-facing product flows.',
+                'Six months of professional Flutter development on a mobile learning application, including reusable UI, responsive layouts, and API-driven user flows.',
             tags: [
               'Flutter',
               'Dart',

@@ -78,7 +78,7 @@ class _MobileHero extends StatelessWidget {
         const SizedBox(height: 14),
 
         const Text(
-          'AI/ML & GenAI Engineer',
+          'Android & Flutter Developer | Applied AI Projects',
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w800,
@@ -89,7 +89,7 @@ class _MobileHero extends StatelessWidget {
         const SizedBox(height: 24),
 
         const Text(
-          'Building intelligent and production-ready systems with a strong foundation in Native Android (Kotlin) and Flutter Multiplatform development.',
+          'Five years of mobile development experience, including an internship, with six months of Flutter experience. I also build independent AI and Generative AI projects using Python, FastAPI, and RAG.',
           style: TextStyle(
             fontSize: 18,
             height: 1.55,
@@ -101,7 +101,7 @@ class _MobileHero extends StatelessWidget {
         const SizedBox(height: 22),
 
         const Text(
-          'Software engineer with professional experience in Native Android development using Kotlin and Flutter Multiplatform development, now building end-to-end systems across Machine Learning, Deep Learning, Generative AI, RAG, LLM applications, backend APIs, MLOps, testing, containerization, and deployment workflows.',
+          'Since May 2022 I have worked as an Application Developer at eNyota Learning, following an Android Developer internship from August 2021 to May 2022. My professional work focuses on mobile learning applications. My AI/ML and GenAI work is represented by independent projects.',
           style: TextStyle(
             fontSize: 16,
             height: 1.7,
@@ -181,7 +181,7 @@ class _DesktopHero extends StatelessWidget {
               const SizedBox(height: 16),
 
               Text(
-                'AI/ML & GenAI Engineer',
+                'Android & Flutter Developer | Applied AI Projects',
                 style: TextStyle(
                   fontSize: isTablet ? 28 : 34,
                   fontWeight: FontWeight.w800,
@@ -192,7 +192,7 @@ class _DesktopHero extends StatelessWidget {
               const SizedBox(height: 26),
 
               Text(
-                'Building intelligent and production-ready systems with a strong foundation in Native Android (Kotlin) and Flutter Multiplatform development.',
+                'Five years of mobile development experience, including an internship, with six months of Flutter experience. I also build independent AI and Generative AI projects using Python, FastAPI, and RAG.',
                 style: TextStyle(
                   fontSize: isTablet ? 20 : 24,
                   height: 1.45,
@@ -204,7 +204,7 @@ class _DesktopHero extends StatelessWidget {
               const SizedBox(height: 20),
 
               const Text(
-                'Software engineer with professional experience in Native Android development using Kotlin and Flutter Multiplatform development, now building end-to-end systems across Machine Learning, Deep Learning, Generative AI, RAG, LLM applications, backend APIs, MLOps, testing, containerization, and deployment workflows.',
+                'Since May 2022 I have worked as an Application Developer at eNyota Learning, following an Android Developer internship from August 2021 to May 2022. My professional work focuses on mobile learning applications. My AI/ML and GenAI work is represented by independent projects.',
                 style: TextStyle(
                   fontSize: 16,
                   height: 1.7,
@@ -435,12 +435,12 @@ class _StatsSection extends StatelessWidget {
       runSpacing: 14,
       children: const [
         _StatCard(
-          value: '5+ yrs',
-          label: 'Native Android • Kotlin',
+          value: '5 years',
+          label: 'Mobile development, including internship',
         ),
         _StatCard(
-          value: '6+ mos',
-          label: 'Flutter Multiplatform',
+          value: '6 months',
+          label: 'Flutter development',
         ),
         _StatCard(
           value: '4',

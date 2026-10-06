@@ -15,9 +15,9 @@ class ProfileSection extends StatelessWidget {
         children: [
           const SectionTitle(
             eyebrow: 'Professional Profile',
-            title: 'Mobile engineering foundation. Building production AI systems.',
+            title: 'Mobile engineering experience and independent AI projects.',
             description:
-                'A software engineering journey combining 5+ years of professional Native Android development with Kotlin, Flutter Multiplatform development, and independently built systems across backend engineering, Machine Learning, Deep Learning, Generative AI, RAG, and MLOps.',
+                'Mobile application developer with five years of experience including an internship, and six months of Flutter work. I build independent projects across Python backends, machine learning, Generative AI, and RAG.',
           ),
 
           const SizedBox(height: 34),
@@ -34,7 +34,7 @@ class ProfileSection extends StatelessWidget {
                   number: '01',
                   title: 'Professional mobile engineering',
                   description:
-                      '5+ years of professional experience in Native Android development using Kotlin, building mobile application experiences, UI implementations, reusable components, and complete product flows. Also experienced in Flutter Multiplatform development.',
+                      'Five years of mobile development including an internship, building application UI, reusable components, and user flows. My historical native Android work used Kotlin; I also have six months of Flutter experience.',
                   tags: [
                     'Kotlin',
                     'Android',
