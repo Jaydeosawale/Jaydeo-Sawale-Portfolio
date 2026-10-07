@@ -213,7 +213,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     spacing: 7,
                     runSpacing: 8,
                     children: [
-                      _ProjectLink(
+                      if (widget.project.webUrl != null) _ProjectLink(
                         label: 'Web',
                         tooltipLabel: 'Live website',
                         icon: Icons.language_rounded,
@@ -222,7 +222,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         onOpen: _open,
                       ),
 
-                      _ProjectLink(
+                      if (widget.project.androidUrl != null) _ProjectLink(
                         label: 'Android APK',
                         tooltipLabel: 'Android APK',
                         icon: Icons.android_rounded,
@@ -231,7 +231,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         onOpen: _open,
                       ),
 
-                      _ProjectLink(
+                      if (widget.project.iosUrl != null) _ProjectLink(
                         label: 'iOS',
                         tooltipLabel: 'iOS app',
                         icon: Icons.apple,
@@ -240,7 +240,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         onOpen: _open,
                       ),
 
-                      _ProjectLink(
+                      if (widget.project.githubUrl != null) _ProjectLink(
                         label: 'GitHub',
                         tooltipLabel: 'Source code',
                         icon: Icons.code_rounded,
@@ -296,14 +296,10 @@ class _ProjectLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final enabled = url != null && url!.isNotEmpty;
-
     return Tooltip(
-      message: enabled
-          ? 'Open $tooltipLabel'
-          : '$tooltipLabel not added yet',
+      message: 'Open $tooltipLabel',
       child: InkWell(
-        onTap: enabled ? () => onOpen(url) : null,
+        onTap: () => onOpen(url),
         borderRadius: BorderRadius.circular(11),
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -311,14 +307,10 @@ class _ProjectLink extends StatelessWidget {
             vertical: 8,
           ),
           decoration: BoxDecoration(
-            color: color.withValues(
-              alpha: enabled ? 0.11 : 0.055,
-            ),
+            color: color.withValues(alpha: 0.11),
             borderRadius: BorderRadius.circular(11),
             border: Border.all(
-              color: color.withValues(
-                alpha: enabled ? 0.30 : 0.16,
-              ),
+              color: color.withValues(alpha: 0.30),
             ),
           ),
           child: Row(
@@ -327,9 +319,7 @@ class _ProjectLink extends StatelessWidget {
               Icon(
                 icon,
                 size: 15,
-                color: enabled
-                    ? color
-                    : color.withValues(alpha: 0.65),
+                color: color,
               ),
 
               const SizedBox(width: 6),
@@ -339,9 +329,7 @@ class _ProjectLink extends StatelessWidget {
                 style: TextStyle(
                   fontSize: label == 'Android APK' ? 9.5 : 10.5,
                   fontWeight: FontWeight.w800,
-                  color: enabled
-                      ? Colors.white
-                      : Colors.white70,
+                  color: Colors.white,
                 ),
               ),
             ],

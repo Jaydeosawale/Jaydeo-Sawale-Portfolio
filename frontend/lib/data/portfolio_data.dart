@@ -130,6 +130,7 @@ const projects = <Project>[
       'Strengthen offline and caching behavior where appropriate.',
       'Expand automated testing around critical user flows.',
     ],
+    githubUrl: 'https://github.com/Jaydeosawale/trav-planner',
   ),
 
   Project(
@@ -183,6 +184,7 @@ const projects = <Project>[
       'Experiment with reranking for stronger context selection.',
       'Improve citation and grounding behavior.',
     ],
+    githubUrl: 'https://github.com/Jaydeosawale/LegalLens-AI',
   ),
 
   Project(
@@ -238,5 +240,6 @@ const projects = <Project>[
       'Add stronger testing around Android and AI workflows.',
       'Explore additional LLM and agent-powered features.',
     ],
+    githubUrl: 'https://github.com/Jaydeosawale/AI-Nexus',
   ),
 ];

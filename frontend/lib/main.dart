@@ -21,7 +21,7 @@ class PortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Jaydeo Sawale — Software Engineer | AI/ML & Mobile',
+      title: 'Jaydeo Sawale — Android & Flutter Developer | Applied AI Projects',
       theme: AppTheme.dark(),
       home: const PortfolioHome(),
     );
@@ -516,7 +516,7 @@ class _Footer extends StatelessWidget {
                     SizedBox(height: 8),
 
                     Text(
-                      'Software Engineer • AI / ML • Mobile',
+                      'Android & Flutter Developer • Applied AI Projects',
                       style: TextStyle(
                         color: Colors.white38,
                         fontSize: 12,
@@ -535,7 +535,7 @@ class _Footer extends StatelessWidget {
                     ),
 
                     Text(
-                      'Software Engineer • AI / ML • Mobile',
+                      'Android & Flutter Developer • Applied AI Projects',
                       style: TextStyle(
                         color: Colors.white38,
                         fontSize: 12,

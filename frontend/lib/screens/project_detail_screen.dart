@@ -136,28 +136,24 @@ class _ActionBar extends StatelessWidget {
       spacing: 10,
       runSpacing: 10,
       children: [
-        _ActionButton(
+        if (project.webUrl != null) _ActionButton(
           label: 'Web',
           icon: Icons.public_rounded,
-          enabled: project.webUrl != null,
           onPressed: () => onOpen(project.webUrl),
         ),
-        _ActionButton(
+        if (project.androidUrl != null) _ActionButton(
           label: 'Android APK',
           icon: Icons.android_rounded,
-          enabled: project.androidUrl != null,
           onPressed: () => onOpen(project.androidUrl),
         ),
-        _ActionButton(
+        if (project.iosUrl != null) _ActionButton(
           label: 'iOS',
           icon: Icons.apple,
-          enabled: project.iosUrl != null,
           onPressed: () => onOpen(project.iosUrl),
         ),
-        _ActionButton(
+        if (project.githubUrl != null) _ActionButton(
           label: 'GitHub',
           icon: Icons.code_rounded,
-          enabled: project.githubUrl != null,
           onPressed: () => onOpen(project.githubUrl),
         ),
       ],
@@ -168,26 +164,24 @@ class _ActionBar extends StatelessWidget {
 class _ActionButton extends StatelessWidget {
   final String label;
   final IconData icon;
-  final bool enabled;
   final VoidCallback onPressed;
 
   const _ActionButton({
     required this.label,
     required this.icon,
-    required this.enabled,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
-      onPressed: enabled ? onPressed : null,
+      onPressed: onPressed,
       icon: Icon(icon, size: 17),
-      label: Text(enabled ? label : '$label • coming soon'),
+      label: Text(label),
       style: OutlinedButton.styleFrom(
         foregroundColor: Colors.white,
         side: BorderSide(
-          color: enabled ? AppTheme.cyan.withValues(alpha: 0.28) : Colors.white12,
+          color: AppTheme.cyan.withValues(alpha: 0.28),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
       ),
