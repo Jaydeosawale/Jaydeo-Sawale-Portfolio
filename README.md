@@ -1,30 +1,29 @@
-# Portfolio V14
+# Jaydeo Sawale Portfolio
 
-Premium Flutter Web portfolio for Jaydeo Sawale.
+Public portfolio: https://jaydeo-sawale-portfolio.vercel.app
 
-## Positioning
-- Professional experience: Android and Flutter frontend/mobile development at eNyota Learning Pvt. Ltd.
-- Independent engineering: Python backend services, Machine Learning, Generative AI, RAG, MLOps, testing, Docker, CI/CD, and deployment workflows.
+The public site is static HTML, CSS and a small progressive-enhancement script. Each case study has its own URL, canonical metadata and readable HTML without JavaScript. No external package dependencies are required for the build.
 
-## Flagship projects
-1. MessageShield AI — MLOps / Machine Learning / AI Safety
-2. Trav Planner — Flutter / Mobile Application Engineering
-3. LegalLens AI — Generative AI / RAG / Document Intelligence
-4. AI Nexus — LLMs / Agents / AI Systems
+## Build and preview
 
-## Local validation
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r backend/requirements.txt
-pytest
+Requires Node.js 20 or later.
 
-cd frontend
-flutter pub get
-flutter analyze
-flutter run -d chrome
+```sh
+npm run build
+python3 -m http.server 8765 --directory dist
 ```
 
-Project links (Web, Android APK, iOS, GitHub) are modeled as optional URLs. Add the real URLs in `frontend/lib/data/portfolio_data.dart`; enabled buttons open externally.
+Content is in `site/projects.json` and `scripts/build.mjs`. Styles and mobile navigation are in `site/style.css` and `site/app.js`. Vercel builds and publishes `dist/`. APK downloads use GitHub release assets; the resume PDF is served from `/downloads/`.
 
-The profile image asset is a crop of the supplied photograph with only pixel-level brightness, contrast, and color adjustments.
+The original Flutter portfolio source remains in `frontend/` for reference. It is not the production public-site build. Existing backend/API files are retained.
+
+## Content and assets
+
+- Professional Kotlin/Flutter work is distinguished from independent AI/backend projects.
+- MessageShield evaluation describes a held-out split of curated data, not production detection accuracy.
+- The LegalLens screenshot is labelled as a sample-data screen preview.
+- Travel Planner and LegalLens APKs are demo builds and do not update automatically when source changes.
+- The completed certificate includes its verification URL and ID. Expected November 2026 credentials remain in progress.
+- The checked resume is in `site/downloads/`.
+
+Before publishing, build and check desktop/mobile layouts, case-study links, resume downloads and APK release assets.

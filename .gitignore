@@ -10,3 +10,4 @@ build/
 frontend/build/
 .idea/
 .vscode/
+dist/

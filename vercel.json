@@ -1,11 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "bash vercel-build.sh",
-  "outputDirectory": "frontend/build/web",
-  "rewrites": [
-    {
-      "source": "/((?!api(?:/|$)).*)",
-      "destination": "/index.html"
-    }
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+      { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+    ]},
+    { "source": "/downloads/(.*)", "headers": [
+      { "key": "Content-Disposition", "value": "attachment" }
+    ]}
   ]
 }
