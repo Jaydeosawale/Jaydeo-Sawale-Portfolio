@@ -41,3 +41,10 @@ for(const page of policies){
  await mkdir(path.join(out,'messageshield-ai',page.slug),{recursive:true});
  await writeFile(path.join(out,'messageshield-ai',page.slug,'index.html'),shell({title:page.title,description:page.title,route,content:`<article class="wrap" style="max-width:850px;padding-top:64px;padding-bottom:80px"><h1 style="font-size:clamp(2rem,5vw,3rem)">${e(page.title)}</h1>${page.body}</article>`}));
 }
+
+const travPolicies=JSON.parse(await readFile(path.join(source,'trav-policies.json'),'utf8'));
+for(const page of travPolicies){
+ const route=`/trav/${page.slug}/`;
+ await mkdir(path.join(out,'trav',page.slug),{recursive:true});
+ await writeFile(path.join(out,'trav',page.slug,'index.html'),shell({title:page.title,description:page.title,route,content:`<article class="wrap" style="max-width:850px;padding-top:64px;padding-bottom:80px"><h1 style="font-size:clamp(2rem,5vw,3rem)">${e(page.title)}</h1>${page.body}</article>`}));
+}
