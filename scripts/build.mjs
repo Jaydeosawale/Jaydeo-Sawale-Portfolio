@@ -34,3 +34,10 @@ await writeFile(path.join(out,'404.html'),shell({title:'Page not found | Jaydeo 
 await writeFile(path.join(out,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/',...projects.map(p=>`/projects/${p.id}/`)].map(r=>`<url><loc>${origin+r}</loc></url>`).join('')}</urlset>`);
 console.log('Built portfolio homepage, 3 case studies, 404, sitemap and downloads.');
+
+const policies=JSON.parse(await readFile(path.join(source,'messageshield-policies.json'),'utf8'));
+for(const page of policies){
+ const route=`/messageshield-ai/${page.slug}/`;
+ await mkdir(path.join(out,'messageshield-ai',page.slug),{recursive:true});
+ await writeFile(path.join(out,'messageshield-ai',page.slug,'index.html'),shell({title:page.title,description:page.title,route,content:`<article class="wrap" style="max-width:850px;padding-top:64px;padding-bottom:80px"><h1 style="font-size:clamp(2rem,5vw,3rem)">${e(page.title)}</h1>${page.body}</article>`}));
+}
