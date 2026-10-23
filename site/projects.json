@@ -2,7 +2,7 @@
   {
     "id": "messageshield-ai",
     "name": "MessageShield AI",
-    "category": "Machine learning · Message analysis",
+    "category": "Machine learning \u00b7 Message analysis",
     "number": "01",
     "summary": "An OCR-assisted message analysis app with a trained classifier, authenticated history and model monitoring.",
     "problem": "People receive suspicious messages as text and screenshots. I built a workflow that extracts the message, runs classification and risk analysis, and keeps a private analysis history.",
@@ -21,7 +21,7 @@
     "version": "1.0.0",
     "size": "33.4 MB",
     "proof": "89.5% accuracy",
-    "proofNote": "200 held-out curated messages · 10 categories",
+    "proofNote": "200 held-out curated messages \u00b7 10 categories",
     "built": [
       "Designed and developed the Flutter/Dart frontend, Python/FastAPI backend and PostgreSQL storage end to end.",
       "Added camera/gallery OCR with Google ML Kit, message analysis endpoints, risk signals and per-user history.",
@@ -38,12 +38,16 @@
     ],
     "decision": "I used an interpretable classical ML baseline and kept preprocessing and inference together. Model version tracking and category drift checks make changes to predictions easier to investigate.",
     "evaluation": "The classifier achieved 89.5% accuracy (179/200) and 89.2% weighted F1 on the held-out split of a 1,000-message curated dataset. These are classifier evaluation results, not a production scam-detection guarantee. Multilingual and real-world evaluation remain areas for improvement.",
-    "next": "Expand language and edge-case coverage, strengthen the evaluation dataset, and compare multilingual embedding models against the existing baseline."
+    "next": "Expand language and edge-case coverage, strengthen the evaluation dataset, and compare multilingual embedding models against the existing baseline.",
+    "playStore": "https://play.google.com/store/apps/details?id=com.jaydeo.messageshield",
+    "icon": "messageshield-icon.png",
+    "published": true,
+    "distribution": "Available on Google Play"
   },
   {
     "id": "legallens-ai",
-    "name": "LegalLens AI",
-    "category": "Generative AI · RAG · Document research",
+    "name": "Legal Lens",
+    "category": "Generative AI \u00b7 RAG \u00b7 Document research",
     "number": "02",
     "summary": "Document-grounded legal research with hybrid retrieval, reranking, source citations and access-controlled workspaces.",
     "problem": "A useful document assistant needs to retrieve the right clauses and show where an answer came from. I built a research application that connects document processing, retrieval and cited responses.",
@@ -55,14 +59,14 @@
       "Groq"
     ],
     "image": "legallens.jpg",
-    "caption": "Document summary screen preview using sample data. Shown as a UI preview, not a benchmark result.",
+    "caption": "Legal Lens document research interface. Research assistance with source references.",
     "web": "https://jaydeo-legallens.vercel.app",
     "github": "https://github.com/Jaydeosawale/LegalLens-AI",
     "apk": "https://github.com/Jaydeosawale/LegalLens-AI/releases/download/portfolio-demo-2026-10-20/LegalLens-AI-1.0.0-demo.apk",
-    "version": "1.0.0 demo",
+    "version": "1.0.0",
     "size": "59.2 MB",
     "proof": "Hybrid retrieval",
-    "proofNote": "Semantic + BM25 · reranking · cited responses",
+    "proofNote": "Semantic + BM25 \u00b7 reranking \u00b7 cited responses",
     "built": [
       "Designed and developed the Flutter/Dart frontend, FastAPI backend and PostgreSQL/pgvector database end to end.",
       "Implemented PDF upload, extraction/OCR, chunking and 384-dimensional SentenceTransformer embeddings.",
@@ -79,12 +83,16 @@
     ],
     "decision": "I combined keyword and semantic retrieval because a legal query can depend on both exact terms and meaning. Reranking and context selection sit before generation, while ownership checks constrain which documents a user can access.",
     "evaluation": "The project includes access-control and retrieval-related tests. I have not published a comprehensive legal-answer accuracy benchmark. Answers are research assistance and should be checked against the cited source documents.",
-    "next": "Build a representative retrieval evaluation set, measure citation support, and expand checks for ambiguous or unsupported questions."
+    "next": "Build a representative retrieval evaluation set, measure citation support, and expand checks for ambiguous or unsupported questions.",
+    "playStore": "https://play.google.com/store/apps/details?id=com.jaydeo.legallens",
+    "icon": "legal-lens-icon.png",
+    "published": true,
+    "distribution": "Available on Google Play"
   },
   {
     "id": "ai-travel-planner",
-    "name": "AI Travel Planner",
-    "category": "Full-stack application · Generative AI",
+    "name": "Trav (AI Travel Planner)",
+    "category": "Full-stack application \u00b7 Generative AI",
     "number": "03",
     "summary": "Discover places and turn travel preferences into validated, reviewable day-wise itinerary drafts.",
     "problem": "AI-generated itineraries need a reliable path from a draft to a saved trip. I built place discovery, planning and persistence with explicit validation and review before saving.",
@@ -100,10 +108,10 @@
     "web": "https://jaydeo-trav-planner.vercel.app",
     "github": "https://github.com/Jaydeosawale/trav-planner",
     "apk": "https://github.com/Jaydeosawale/trav-planner/releases/download/portfolio-demo-2026-10-20/AI-Travel-Planner-1.0.21.apk",
-    "version": "1.0.21 demo",
+    "version": "1.0.21",
     "size": "126.7 MB",
-    "proof": "Draft → review → save",
-    "proofNote": "Structured validation · ownership · idempotency",
+    "proof": "Draft \u2192 review \u2192 save",
+    "proofNote": "Structured validation \u00b7 ownership \u00b7 idempotency",
     "built": [
       "Designed and developed the Flutter/Dart client, Python/FastAPI services and PostgreSQL database end to end, using SQLAlchemy for persistence.",
       "Built destination/place discovery, saved places, trips and day-wise itineraries.",
@@ -121,6 +129,10 @@
     ],
     "decision": "I treated AI output as a draft. Validation and review separate generation from persistence, and an idempotent save path protects against duplicate submissions. Provider cooldowns and usage tracking make quota failures easier to handle.",
     "evaluation": "Focused backend and Flutter checks cover selected application flows. Broader itinerary-quality and real-user evaluation remains to be completed. Hosted demo services may need time to initialize.",
-    "next": "Expand device-level regression coverage and evaluate itinerary quality against a defined set of travel scenarios."
+    "next": "Expand device-level regression coverage and evaluate itinerary quality against a defined set of travel scenarios.",
+    "playStore": "https://play.google.com/store/apps/details?id=com.jaydeo.travplanner",
+    "icon": "trav-icon.png",
+    "published": true,
+    "distribution": "Available in India"
   }
 ]
